@@ -5,6 +5,7 @@ let play = document.querySelector('#play');
 let stop = document.querySelector('#stop');
 let reset = document.querySelector('#reset');
 
+let sound;
 let score = 0;
 let winPoint = 0;
 
@@ -52,6 +53,12 @@ function timeOut(params) {
             winPoint++;
             img.style.animationName = 'tomDeath'
             h2.innerText = `Score : ${score}`;
+            if (sound) {
+                sound.pause(); // Arrêter la lecture si le son est déjà en cours
+                sound.currentTime = 0; // Rembobiner au début pour pouvoir rejouer
+            }
+            sound = new Audio('assets/ouille.mp3');
+            sound.play(); // Jouer le son
         }
         
       })
