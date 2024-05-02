@@ -12,8 +12,6 @@ let score = 0;
 let winPoint = 0;
 let music
 
-
-
 music = new Audio('assets/Samba.mp3');
 
 
