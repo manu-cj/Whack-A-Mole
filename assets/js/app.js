@@ -45,7 +45,7 @@ function interval() {
             second = 60;
             score = 0;
             music.play();
-            music.volume = 0.1;
+            music.volume = 0.05;
             music.loop = true;
         }
         if (timeOne === false) {
