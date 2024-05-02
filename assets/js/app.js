@@ -5,11 +5,14 @@ let play = document.querySelector('#play');
 let stop = document.querySelector('#stop');
 let reset = document.querySelector('#reset');
 
+let timeOne = false;
+let on = false;
 let sound;
 let score = 0;
 let winPoint = 0;
 
 function interval() {
+    on = true;
     let interval = setInterval(() => {
         let rand = Math.floor(Math.random(0) * divs.length);
         timeOut(rand)
@@ -17,30 +20,35 @@ function interval() {
             clearInterval(interval);
             second = 60;
             score = 0;
+            one = false;
         });
         reset.addEventListener('click', () => {
             clearInterval(interval);
             second = 60;
             score = 0;
+            on = false;
         });
         if (second === 1) {
             clearInterval(interval);
         }
-    }, 2000);
+    }, 1000);
 }
 
-play.addEventListener('click', () => {
-    interval();
-    timerPlay();
-    second = 60;
-    score = 0;
-})
-reset.addEventListener('click', () => {
-    interval();
-    timerPlay();
-    second = 60;
-    score = 0;
-});
+
+    play.addEventListener('click', () => {
+        if(on === false) {
+            interval();
+        }
+        if (timeOne === false) {
+            timerPlay();
+        }
+        second = 60;
+        score = 0;
+    })
+
+
+
+
 
 
 
@@ -73,13 +81,14 @@ function timeOut(params) {
             winPoint = 0;
           }, 1000);
         img.style.animationName = 'tomOut';
-      }, 1000);
+      }, 500);
     }, 500);
 }
 
 let timer = document.getElementById('timer');
 let second = 60;
 function timerPlay() {
+    timeOne = true;
     let time = setInterval(() => {
         second--;
         timer.innerText = `Timer : ${second} Secondes`;
@@ -90,7 +99,20 @@ function timerPlay() {
             clearInterval(interval);
             timer.innerText = `Timer : Temps écoulé`;
             clearInterval(time);
+            timeOne = false;
+            on = false;
         }
+
+        stop.addEventListener('click', () => {
+            clearInterval(time);
+            second = 60;
+            timer.innerText = `Timer : 60 Secondes`;
+        })
+        reset.addEventListener('click', () => {
+            clearInterval(time);
+            second = 60;
+            timer.innerText = `Timer : 60 Secondes`;
+        })
     }, 1000);
     
 }
