@@ -121,4 +121,10 @@ body main section div img {
     display: none;
     transform: rotate(-80deg);
   }
+}
+body footer {
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
 }/*# sourceMappingURL=style.css.map */
