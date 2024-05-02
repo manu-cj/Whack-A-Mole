@@ -15,9 +15,7 @@ let music
 
 
 music = new Audio('assets/Samba.mp3');
-music.play();
-music.volume = 0.1;
-music.loop = true;
+
 
 function interval() {
     on = true;
@@ -48,6 +46,9 @@ function interval() {
             interval();
             second = 60;
             score = 0;
+            music.play();
+            music.volume = 0.1;
+            music.loop = true;
         }
         if (timeOne === false) {
             timerPlay();
