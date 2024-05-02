@@ -50,8 +50,8 @@ body main .sectionButton button:hover {
 body main section {
   width: 400px;
   height: 400px;
-  margin: 30px;
-  padding: 30px;
+  margin: 20px;
+  padding: 25px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
