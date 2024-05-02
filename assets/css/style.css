@@ -51,6 +51,7 @@ body main section {
   width: 400px;
   height: 400px;
   margin: 15px;
+  padding: 10px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
