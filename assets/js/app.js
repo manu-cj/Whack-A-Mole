@@ -16,10 +16,12 @@ function interval() {
         stop.addEventListener('click', () => {
             clearInterval(interval);
             second = 60;
+            score = 0;
         });
         reset.addEventListener('click', () => {
             clearInterval(interval);
             second = 60;
+            score = 0;
         });
         if (second === 1) {
             clearInterval(interval);
@@ -31,11 +33,13 @@ play.addEventListener('click', () => {
     interval();
     timerPlay();
     second = 60;
+    score = 0;
 })
 reset.addEventListener('click', () => {
     interval();
     timerPlay();
     second = 60;
+    score = 0;
 });
 
 
