@@ -10,6 +10,14 @@ let on = false;
 let sound;
 let score = 0;
 let winPoint = 0;
+let music
+
+
+
+music = new Audio('assets/Samba.mp3');
+music.play();
+music.volume = 0.1;
+music.loop = true;
 
 function interval() {
     on = true;
@@ -20,7 +28,7 @@ function interval() {
             clearInterval(interval);
             second = 60;
             score = 0;
-            one = false;
+            on = false;
         });
         reset.addEventListener('click', () => {
             clearInterval(interval);
@@ -38,12 +46,13 @@ function interval() {
     play.addEventListener('click', () => {
         if(on === false) {
             interval();
+            second = 60;
+            score = 0;
         }
         if (timeOne === false) {
             timerPlay();
         }
-        second = 60;
-        score = 0;
+        
     })
 
 
@@ -71,6 +80,7 @@ function timeOut(params) {
             }
             sound = new Audio('assets/ouille.mp3');
             sound.play(); // Jouer le son
+            sound.volume = 1;
         }
         
       })
